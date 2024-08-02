@@ -33,3 +33,10 @@ let rec length_t (xs: 'a list) : int =
     | _ :: rest -> length_t' rest (res + 1)
   in length_t' xs 0
 
+(** problem 05 **)
+let rec rev (xs: 'a list): 'a list =
+  let rec rev' (xs: 'a list) (acc: 'a list): 'a list =
+    match xs with
+    | [] -> acc
+    | x :: rest -> rev' rest (x :: acc)
+  in rev' xs []
